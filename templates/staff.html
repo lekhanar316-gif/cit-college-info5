@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Our Staff</h1>
+{% for dept, members in departments.items() %}
+  <section class="department">
+    <h2>{{ dept }}</h2>
+    <ul>
+      {% for m in members %}
+        <li>{{ m.name }} - {{ m.designation }}</li>
+      {% endfor %}
+    </ul>
+  </section>
+{% endfor %}
+{% endblock %}

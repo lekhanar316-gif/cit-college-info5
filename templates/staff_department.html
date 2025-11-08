@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+  <h2>{{ department }} Department</h2>
+  <p><a href="{{ url_for('staff_index') }}" class="outline">← Back to all departments</a></p>
+  <div class="grid">
+    {% for s in staff %}
+      <div class="card small-card">
+        <img src="{{ url_for('static', filename='images/' ~ s.photo) }}" alt="{{ s.name }}">
+        <h4>{{ s.name }}</h4>
+        <p class="muted">{{ s.designation }}</p>
+        <p><a class="btn" href="{{ url_for('staff_detail', staff_id=s.id) }}">Profile</a></p>
+      </div>
+    {% endfor %}
+  </div>
+{% endblock %}

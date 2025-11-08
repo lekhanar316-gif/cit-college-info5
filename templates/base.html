@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{ college.name }}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <div class="nav-container">
+      <div class="logo-area">
+        <img src="{{ url_for('static', filename='images/logo.png') }}" class="logo" alt="College Logo">
+        <h2>{{ college.name }}</h2>
+      </div>
+      <nav>
+        <a href="{{ url_for('index') }}">Home</a>
+        <a href="{{ url_for('college_info') }}">About</a>
+        <a href="{{ url_for('facilities_page') }}">Facilities</a>
+        <a href="{{ url_for('staff_index') }}">Staff</a>
+        <a href="{{ url_for('gallery') }}">Gallery</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; {{ college.name }} | {{ college.email }} | {{ college.phone }}</p>
+  </footer>
+</body>
+</html>

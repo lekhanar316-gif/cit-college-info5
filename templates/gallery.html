@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Cultural Activities</h1>
+
+<div class="gallery-grid">
+  <img src="{{ url_for('static', filename='images/gallery/cultural1.jpg') }}" alt="Cultural 1">
+  <img src="{{ url_for('static', filename='images/gallery/cultural2.jpg') }}" alt="Cultural 2">
+</div>
+
+<div class="video">
+  <video controls width="500">
+    <source src="{{ url_for('static', filename='images/gallery/cultural_video.mp4') }}" type="video/mp4">
+  </video>
+</div>
+{% endblock %}

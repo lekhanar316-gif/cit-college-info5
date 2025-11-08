@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="home">
+  <div class="intro">
+    <h1>Welcome to {{ college.name }}</h1>
+    <p>{{ college.vision }}</p>
+    <p><strong>Affiliated to:</strong> {{ college.affiliation }}</p>
+    <p><strong>NAAC Grade:</strong> {{ college.grade }}</p>
+  </div>
+
+  <div class="qr-section">
+    <h2>Scan to View College Info</h2>
+    <img src="{{ url_for('static', filename=qr_file) }}" alt="College QR Code" class="qr-image">
+  </div>
+</section>
+{% endblock %}

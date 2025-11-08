@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="card split">
+  <div class="left">
+    <img src="{{ url_for('static', filename='images/college_banner.jpg') }}" class="thumb" alt="College">
+  </div>
+  <div class="right">
+    <h2>{{ college.name }}</h2>
+    <p><strong>Address:</strong> {{ college.address }} • <strong>Pincode:</strong> {{ college.pincode }}</p>
+    <p><strong>Established:</strong> {{ college.established }} • <strong>Grade:</strong> {{ college.grade }}</p>
+    <p><strong>Affiliation:</strong> {{ college.affiliation }}</p>
+    <p><strong>College Code:</strong> {{ college.college_code }} • <strong>Accreditation:</strong> {{ college.accreditation }}</p>
+    <p><strong>Contact:</strong> {{ college.phone }} • {{ college.email }}</p>
+  </div>
+</section>
+
+<section class="card">
+  <h3>Tied-up Companies</h3>
+  <div class="companies-grid">
+    {% for c in companies %}
+      <div class="company-card">
+        <img src="{{ url_for('static', filename='images/' ~ c.logo) }}" alt="{{ c.name }}">
+        <div class="company-name">{{ c.name }}</div>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="card">
+  <h2>Workshops</h2>
+<div class="workshops">
+  {% for w in workshops %}
+    <div class="workshop-card">
+      <img src="{{ w.photo }}" alt="{{ w.title }}" class="workshop-img">
+      <div class="workshop-info">
+        <h3>{{ w.title }}</h3>
+        <p><strong>Department:</strong> {{ w.department }}</p>
+        <p>{{ w.description }}</p>
+      </div>
+    </div>
+  {% endfor %}
+</div>
+</section>
+
+<section class="card">
+  <h3>College Video</h3>
+  <div class="video-wrap">
+    <iframe width="100%" height="420" src="https://www.youtube.com/embed/YmKzB9fmOXM" frameborder="0" allowfullscreen></iframe>
+  </div>
+</section>
+{% endblock %}
